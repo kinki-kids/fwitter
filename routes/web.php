@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('login', 'Auth\Logincontroller@showLoginForm')->name('login');
+Route::get('login', 'Auth\Logincontroller@login')->name('login.post');
+Route::get('logout', 'Auth\Logincontroller@logout')->name('logout');
+
