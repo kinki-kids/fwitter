@@ -12,19 +12,22 @@
             <ul class="navbar-nav">
                 @if (Auth::check())
                     {{--　ユーザ一覧へのリンク　--}}
-                    <li class="nav-link"><a href="#" class="nav-link">Users</a></li>
-                    <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="nav-link">{!! link_to_route('users.index', 'ユーザ一覧', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item dropdown">
+                        
+                        <ul class="dropdown-menu dropdown-menu-right">
                         {{-- ユーザ詳細ページへのリンク --}}
-                        <li class="dropdown-item"><a href="#">My Profile</a></li>
+                        <li>{!! link_to_route('users.show', 'プロフィール', ['user' => Auth::id()]) !!}</li>
                         <li class="dropdown-divider"></li>
                         {{-- ログアウトへのリンク --}}
                         <li class="dropdown-item">{!! link_to_route('logout.get','ログアウト') !!}</li>
                     </ul>
+                    </li>
                 @else
                     {{--　ユーザ登録ページへのリンク --}}
                     <li>{!! link_to_route('signup.get', 'ユーザ登録はこちら！', [], ['class' => 'nav-link']) !!}</li>
                     {{--　ログインページへのリンク --}}
-                    <li class="nav-item">{!! link_to_route('signup.get', 'ログインはこちら！', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item">{!! link_to_route('login', 'ログインはこちら！', [], ['class' => 'nav-link']) !!}</li> 
                 @endif
             </ul>
         </div>
