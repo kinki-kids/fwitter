@@ -14,14 +14,14 @@
                     {{--　ユーザ一覧へのリンク　--}}
                     <li class="nav-link">{!! link_to_route('users.index', 'ユーザ一覧', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item dropdown">
-                        
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                        {{-- ユーザ詳細ページへのリンク --}}
-                        <li>{!! link_to_route('users.show', 'プロフィール', ['user' => Auth::id()]) !!}</li>
-                        <li class="dropdown-divider"></li>
-                        {{-- ログアウトへのリンク --}}
-                        <li class="dropdown-item">{!! link_to_route('logout.get','ログアウト') !!}</li>
-                    </ul>
+                            {{-- ユーザ詳細ページへのリンク --}}
+                            <li>{!! link_to_route('users.show', 'プロフィール', ['user' => Auth::id()]) !!}</li>
+                            <li class="dropdown-divider"></li>
+                            {{-- ログアウトへのリンク --}}
+                            <li class="dropdown-item">{!! link_to_route('logout.get','ログアウト') !!}</li>
+                        </ul>
                     </li>
                 @else
                     {{--　ユーザ登録ページへのリンク --}}
